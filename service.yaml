@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wisecow-service  # Name of the Service
+spec:
+  selector:
+    app: wisecow  # Must match the labels defined in the Deployment
+  ports:
+  - protocol: TCP
+    port: 80  # Port that the Service listens on
+    targetPort: 8080  # Port that the container listens on
+  type: LoadBalancer  # Type of service (LoadBalancer, NodePort, or ClusterIP)

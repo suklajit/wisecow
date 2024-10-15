@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wisecow-deployment  # Name of the Deployment
+  labels:
+    app: wisecow  # Labels for the Deployment
+spec:
+  replicas: 3  # Number of desired pods
+  selector:
+    matchLabels:
+      app: wisecow  # Selector to identify the pods
+  template:
+    metadata:
+      labels:
+        app: wisecow  # Labels for the pod template
+    spec:
+      containers:
+      - name: wisecow  # Name of the container
+        image: suklajit/wisecow-app:latest  # Replace with your Docker image
+        ports:
+        - containerPort: 8080  # Port the container listens on
+        # Add environment variables, volume mounts, etc., if needed
